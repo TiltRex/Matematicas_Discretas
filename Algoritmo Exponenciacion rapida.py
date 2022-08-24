@@ -1,11 +1,14 @@
 a=int(input("Ingrese un numero entero positivo para la base: "))
 n=int(input("Ingrese un numero entero positivo para el exponente: "))
 
-list=[a%2]
-list2=[]
-list3=[]
+list=[a%2] #Numero binario
+list2=[] #Exponentes
+list3=[] #Potencias
+
+
 exp=0
 num=1
+rta=1
 
 
 
@@ -29,10 +32,12 @@ list.remove(0)
 for x in range(len(list2)):
     list3.append(a)
     a=a*a
-    
+
+for x in range(len(list2)):
+    if list2[x]!=0:
+        rta*=list3[x]
+
+print(rta)
 
 
-print(list)
-print(list2)
-print(list3)
 

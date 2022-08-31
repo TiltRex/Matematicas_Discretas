@@ -1,7 +1,7 @@
 a=int(input("Ingrese un numero entero positivo para la base: "))
 n=int(input("Ingrese un numero entero positivo para el exponente: "))
 
-list=[a%2] #Numero binario
+list=[n%2] #Numero binario
 list2=[] #Exponentes
 list3=[] #Potencias
 
@@ -10,6 +10,9 @@ exp=0
 num=1
 rta=1
 
+_n=n
+_a=a
+_rta=""
 
 
 while n!=0:
@@ -36,8 +39,9 @@ for x in range(len(list2)):
 for x in range(len(list2)):
     if list2[x]!=0:
         rta*=list3[x]
+        _rta=str(_a)+"^"+str(list2[x])+" "+_rta
 
-print(rta)
-
+print(f"{_a}^{_n}= {_rta}")
+print(f"{_a}^{_n}= {rta}")
 
 

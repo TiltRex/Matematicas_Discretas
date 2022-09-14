@@ -1,0 +1,22 @@
+num=int(input("Ingrese un numero: "))
+n=2
+list=[]
+list2=[1]
+
+_rta=""
+
+while num!=0:
+    mod=num%n
+    num//=n
+    list.append(mod)
+    list2.append(n)
+    n+=1
+    
+list2.pop(len(list2)-1)
+
+
+for x in range(len(list2)):
+    if list2[x]!=0:
+        _rta=str(list2[x])+"!"+"("+str(list[x])+")"+" "+_rta
+        
+print(_rta)

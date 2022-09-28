@@ -1,0 +1,79 @@
+#########################Definicion de variables#########################
+p=613
+q=127
+n=p*q
+phi=(p-1)*(q-1)
+e=121
+
+phi_=phi
+e_=e
+#########################Teorema Extendido de Euclides para hallar d#########################
+x0 = 1
+x1 = 0
+y0 = 0
+y1 = 1
+
+while phi_ != 0:
+    c = int(e_/phi_)
+    r = e_%phi_
+    x = x0 - c * x1
+    y = y0 - c * y1
+
+    e_ = phi_
+    phi_ = r
+
+    x0 = x1
+    x1 = x
+    y0 = y1
+    y1 = y
+
+d=x0
+
+abc={"a":1,"b":2,"c":3,"d":4,"e":5,"f":6,"g":7,"h":8,"i":9,"j":10,"k":11,"l":12,"m":13,"n":14,"ñ":15,"o":16,"p":17,"q":18,"r":19,"s":20,"t":21,"u":22,"v":23,"w":24,"x":25,"y":26,"z":27}
+rt=0
+key=list(abc.keys())
+#################################################################################################################################################################################################################################
+
+try:
+    while True:
+        op=int(input("1)Encriptar\n2)Desencriptar\n0)Salir\n--->"))
+
+        if op==0:
+            print("Finalizando programa...")
+            exit()
+        elif op==1:
+            rt=1
+            word=input("Ingrese la palabra a encriptar: ").lower()
+            if word.isdigit():
+                exit()
+            letras=list(word)
+
+            for x in range (len(letras)):
+                if letras[x] in abc:
+                    letras[x]=abc[letras[x]]
+                    letras[x]=(letras[x]**e)%n
+
+            print("La palabra encriptada es: \n\n\t",*letras, sep=" ")
+            op2=int(input("\nDesea salir(0) o continuar(1)?\n--->"))
+            if op2==1:
+                continue
+            elif op2==0:
+                print("Finalizando programa...")
+                break
+        elif op==2:
+            if rt==0:
+                print("-------------------------------------------------------\nPrimero encripte una palabra para poder desencriptarla\n-------------------------------------------------------\n")
+            else:
+                for x in range(len(letras)):
+                    letras[x]=(letras[x]**d)%n
+                    letras[x]=key[letras[x]-1]
+
+                print("La palabra encriptada es: \n\n\t",*letras)
+                op2=int(input("\nDesea salir(0) o continuar(1)?\n--->"))
+                if op2==1:
+                    continue
+                elif op2==0:
+                    print("Finalizando programa...")
+                    break
+except:
+    print("Opcion o dato incorrecto, Intente de nuevo")
